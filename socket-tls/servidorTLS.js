@@ -2,19 +2,29 @@ const tls = require('node:tls');
 const fs = require('node:fs');
 
 const options = {
-    key: fs.readFileSync('private-key.pem'),
-    cert: fs.readFileSync('public-cert.pem'),
-  
+    // Server private key
+    key: fs.readFileSync('certificates/server/private-server-key.pem'),
+
+    // Server public certificate
+    cert: fs.readFileSync('certificates/server/certificate-cert.pem'),
+
     // This is necessary only if using client certificate authentication.
-    requestCert: false,
-  
+    requestCert: true,
+
     // This is necessary only if the client uses a self-signed certificate.
-    // ca: [ fs.readFileSync('client-cert.pem') ]
+    ca: [ fs.readFileSync('certificates/client/certificate-cert.pem') ]
 };
 
 const servidor = tls.createServer(options, (socket) => {
-    console.log('server connected',
-    socket.authorized ? 'authorized' : 'unauthorized');  
+    const autorizado = socket.authorized;
+    
+    if(autorizado) {
+        socket.write('Olá cliente! Essa mensagem está criptografada!');
+        socket.setEncoding('utf8');
+        socket.pipe(socket);
+
+        console.log('Mensagem enviada!');
+    }
 });
 
 servidor.listen(4000, 'localhost', () => console.log('Servidor iniciado!'));
