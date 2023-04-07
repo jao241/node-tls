@@ -1,0 +1,13 @@
+Comandos SSL para geração de chaves e certificados.
+
+-> Chave privada
+	-- openssl genrsa -out ryans-key.pem 2048
+	
+-> Certificado
+	-- openssl req -new -sha256 -key ryans-key.pem -out ryans-csr.pem
+
+-> Assinatura do certificado
+	-- openssl x509 -req -in ryans-csr.pem -signkey ryans-key.pem -out ryans-cert.pem
+
+
+
