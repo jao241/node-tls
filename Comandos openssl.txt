@@ -1,3 +1,6 @@
+Documentação link para fonte: 
+	-- https://node.readthedocs.io/en/latest/api/tls/#tls_event_secureconnection
+
 Comandos SSL para geração de chaves e certificados.
 
 -> Chave privada
