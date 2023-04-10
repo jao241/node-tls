@@ -24,5 +24,5 @@ const cliente = tls.connect(4000, 'localhost', options, () => {
 
 cliente.on('data', (data) => {
     console.log(data);
-    fs.writeFileSync('imagem', data);
+    fs.writeFileSync('imagem.jpeg', data);
 });
