@@ -27,8 +27,4 @@ const servidor = tls.createServer(options, (socket) => {
   }
 });
 
-servidor.on("message", (data) => {
-  console.log(data);
-});
-
 servidor.listen(4000, "localhost", () => console.log("Servidor iniciado!"));
