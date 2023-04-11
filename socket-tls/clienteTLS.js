@@ -14,12 +14,6 @@ const options = {
 
 const cliente = tls.connect(4000, 'localhost', options, () => {
     console.log('Cliente conectado');
-    // cliente.write('Olá servidor! Essa mensagem está criptografada!');
-    // cliente.setEncoding('utf8');
-
-    // cliente.pipe(cliente);
-    // // process.stdin.pipe(cliente);
-    // // process.stdin.resume();
 }); 
 
 cliente.on('data', (data) => {
