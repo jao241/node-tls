@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "servidor-tls": "node socket-tls/servidorTLS.js",
-    "cliente-tls": "node socket-tls/clienteTLS.js"
+    "cliente-tls": "node socket-tls/clienteTLS.js",
+    "servidor": "node socket/servidor.js",
+    "cliente": "node socket/cliente.js"
+    
   },
   "keywords": [],
   "author": "João Vitor Lima Lago Santos e Paulo Estevão",
